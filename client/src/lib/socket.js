@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client';
-
+import { SERVER_URL } from './api';
 
 export const createSocket = () =>
-  io(import.meta.env.VITE_SERVER_URL || undefined, { transports: ['websocket', 'polling'], reconnectionDelayMax: 3000 });
+  io(SERVER_URL || undefined, { transports: ['websocket', 'polling'], reconnectionDelayMax: 3000 });

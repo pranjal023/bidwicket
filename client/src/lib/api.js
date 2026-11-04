@@ -1,4 +1,6 @@
-const BASE = `${import.meta.env.VITE_SERVER_URL || ''}/api`;
+
+export const SERVER_URL = (import.meta.env.VITE_SERVER_URL || '').trim().replace(/\/+$/, '');
+const BASE = `${SERVER_URL}/api`;
 
 async function request(path, { method = 'GET', body, headers = {} } = {}) {
   const res = await fetch(`${BASE}${path}`, {

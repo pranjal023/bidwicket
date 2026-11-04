@@ -21,6 +21,7 @@ if (!parsed.success) {
 
 module.exports = {
   ...parsed.data,
-  CLIENT_ORIGINS: parsed.data.CLIENT_ORIGIN.split(',').map((s) => s.trim()).filter(Boolean),
+  
+  CLIENT_ORIGINS: parsed.data.CLIENT_ORIGIN.split(',').map((s) => s.trim().replace(/\/+$/, '')).filter(Boolean),
   SERVE_CLIENT: parsed.data.SERVE_CLIENT === 'true',
 };
